@@ -33,9 +33,12 @@ if uploaded_file:
         }
 
         response = requests.post(
-            "http://your-render-url.onrender.com/extract-resume",
+            "https://ai-resume-analyzer-api-gmbq.onrender.com/extract-resume",
             files=files
         )
+
+        st.write("Status Code:", response.status_code)
+        st.write("Response:", response.text)
 
         data = response.json()
 
