@@ -90,7 +90,7 @@ if st.session_state.resume_text:
             }
 
             response = requests.post(
-                "http://your-render-url.onrender.com/analyze",
+                "http://ai-resume-analyzer-api-gmbq.onrender.com/analyze",
                 json=payload
             )
             st.write("Status Code:", response.status_code)
@@ -104,7 +104,7 @@ if st.session_state.resume_text:
             }
 
             response = requests.post(
-                "http://your-render-url.onrender.com/analyze-role",
+                "http://ai-resume-analyzer-api-gmbq.onrender.com/analyze-role",
                 json=payload
             )
             st.write("Status Code:", response.status_code)
