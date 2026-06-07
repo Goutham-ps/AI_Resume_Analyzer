@@ -93,8 +93,8 @@ if st.session_state.resume_text:
                 "http://ai-resume-analyzer-api-gmbq.onrender.com/analyze",
                 json=payload
             )
-            st.write("Status Code:", response.status_code)
-            st.write("Response Text:", response.text)
+            # st.write("Status Code:", response.status_code)
+            # st.write("Response Text:", response.text)
 
         else:
 
@@ -107,8 +107,8 @@ if st.session_state.resume_text:
                 "http://ai-resume-analyzer-api-gmbq.onrender.com/analyze-role",
                 json=payload
             )
-            st.write("Status Code:", response.status_code)
-            st.write("Response Text:", response.text)
+            # st.write("Status Code:", response.status_code)
+            # st.write("Response Text:", response.text)
 
 
         result = response.json()
