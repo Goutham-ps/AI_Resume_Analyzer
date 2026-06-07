@@ -33,7 +33,7 @@ if uploaded_file:
         }
 
         response = requests.post(
-            "http://127.0.0.1:8000/extract-resume",
+            "http://your-render-url.onrender.com/extract-resume",
             files=files
         )
 
@@ -90,7 +90,7 @@ if st.session_state.resume_text:
             }
 
             response = requests.post(
-                "http://127.0.0.1:8000/analyze",
+                "http://your-render-url.onrender.com/analyze",
                 json=payload
             )
 
@@ -102,7 +102,7 @@ if st.session_state.resume_text:
             }
 
             response = requests.post(
-                "http://127.0.0.1:8000/analyze-role",
+                "http://your-render-url.onrender.com/analyze-role",
                 json=payload
             )
 
