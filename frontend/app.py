@@ -37,9 +37,6 @@ if uploaded_file:
             files=files
         )
 
-        st.write("Status Code:", response.status_code)
-        st.write("Response:", response.text)
-
         data = response.json()
 
         st.session_state.resume_text = data["resume_text"]
