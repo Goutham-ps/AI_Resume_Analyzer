@@ -1,5 +1,6 @@
 import streamlit as st
 import requests
+import plotly.graph_objects as go
 
 st.set_page_config(
     page_title="AI Resume Analyzer",
@@ -121,33 +122,67 @@ if st.session_state.resume_text:
         # ==========================
         # ATS Score Section
         # ==========================
-        col1, col2 = st.columns(2)
+
+        col1, col2 = st.columns([2, 1])
 
         with col1:
 
-            st.metric(
-                "📊 ATS Match Score",
-                f"{score}%"
+            fig = go.Figure(
+                go.Indicator(
+                    mode="gauge+number",
+                    value=score,
+                    title={
+                        "text": "📊 ATS Match Score"
+                    },
+                    gauge={
+                        "axis": {
+                            "range": [0, 100]
+                        },
+                        "bar": {
+                            "color": "darkblue"
+                        },
+                        "steps": [
+                            {
+                                "range": [0, 40],
+                                "color": "#ffcccc"
+                            },
+                            {
+                                "range": [40, 70],
+                                "color": "#fff4cc"
+                            },
+                            {
+                                "range": [70, 100],
+                                "color": "#ccffcc"
+                            }
+                        ]
+                    }
+                )
+            )
+
+            st.plotly_chart(
+                fig,
+                use_container_width=True
             )
 
         with col2:
 
             if score >= 80:
+
                 st.success(
                     "🏆 Excellent Match"
                 )
 
             elif score >= 60:
+
                 st.warning(
                     "👍 Good Match"
                 )
 
             else:
+
                 st.error(
                     "⚠️ Needs Improvement"
                 )
-
-        st.progress(score / 100)
 
         st.divider()
 
