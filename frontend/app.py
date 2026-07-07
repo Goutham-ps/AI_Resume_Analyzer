@@ -18,6 +18,7 @@ uploaded_file = st.file_uploader(
     type=["pdf"]
 )
 
+API_URL = "https://ai-resume-analyzer-api-gmbq.onrender.com"
 # ==========================
 # Resume Upload
 # ==========================
@@ -33,11 +34,7 @@ if uploaded_file:
             )
         }
 
-        response = requests.post(
-            "https://ai-resume-analyzer-api-gmbq.onrender.com/extract-resume",
-            files=files
-        )
-
+        response = requests.post(f"{API_URL}/extract-resume", files=files)
         data = response.json()
 
         st.session_state.resume_text = data["resume_text"]
@@ -91,7 +88,7 @@ if st.session_state.resume_text:
             }
 
             response = requests.post(
-                "http://ai-resume-analyzer-api-gmbq.onrender.com/analyze",
+                f"{API_URL}/analyze",
                 json=payload
             )
             # st.write("Status Code:", response.status_code)
@@ -105,7 +102,7 @@ if st.session_state.resume_text:
             }
 
             response = requests.post(
-                "http://ai-resume-analyzer-api-gmbq.onrender.com/analyze-role",
+                f"{API_URL}/analyze-role",
                 json=payload
             )
             # st.write("Status Code:", response.status_code)
