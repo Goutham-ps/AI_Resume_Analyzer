@@ -1,101 +1,140 @@
-
 # 📄 AI Resume Analyzer
 
-> An AI-powered Resume Analyzer that evaluates resumes, extracts key information, analyzes skills, provides ATS-style feedback, and helps job seekers improve their resumes.
+> An AI-powered Resume Analyzer that evaluates resumes, extracts skills, performs ATS-style analysis, and provides personalized recommendations using a Streamlit frontend and FastAPI backend.
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Python-3.11-blue?logo=python">
-  <img src="https://img.shields.io/badge/Streamlit-Web_App-red?logo=streamlit">
-  <img src="https://img.shields.io/badge/Machine-Learning-green">
-  <img src="https://img.shields.io/badge/NLP-Resume%20Analysis-orange">
-  <img src="https://img.shields.io/badge/License-MIT-yellow">
+
+![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python)
+![Streamlit](https://img.shields.io/badge/Frontend-Streamlit-red?logo=streamlit)
+![FastAPI](https://img.shields.io/badge/Backend-FastAPI-009688?logo=fastapi)
+![Google Gemini](https://img.shields.io/badge/AI-Google%20Gemini-blueviolet)
+![Render](https://img.shields.io/badge/Backend-Render-success?logo=render)
+
 </p>
 
 ---
 
-## 🚀 Project Overview
+# 🚀 Live Demo
 
-The **AI Resume Analyzer** helps candidates understand how well their resumes align with industry expectations.
+### 🌐 Streamlit Application
 
-Users can upload a resume in PDF format, after which the application extracts important information, analyzes skills, evaluates resume quality, and provides personalized suggestions for improvement.
+https://resume-analyzing.streamlit.app/
 
-The goal is to help users create stronger resumes and improve their chances of passing Applicant Tracking Systems (ATS).
+### ⚙️ FastAPI Backend
+
+https://ai-resume-analyzer-api-gmbq.onrender.com/
+
+### 📘 API Documentation
+
+https://ai-resume-analyzer-api-gmbq.onrender.com/docs
 
 ---
 
-## ✨ Features
+# 📌 Project Overview
+
+AI Resume Analyzer is a full-stack AI application designed to help job seekers evaluate and improve their resumes.
+
+The application allows users to upload a PDF resume and analyze it in two different ways:
+
+- 📋 Compare against a Job Description (ATS-style analysis)
+- 💼 Compare against predefined job roles
+
+The frontend is built using **Streamlit**, while the backend is powered by **FastAPI**. The backend handles resume parsing, skill extraction, semantic matching, and resume quality analysis before sending structured results back to the frontend.
+
+---
+
+# ✨ Features
 
 - 📄 Upload Resume (PDF)
 - 🤖 AI-powered Resume Analysis
-- 📌 Skill Extraction
-- 📊 Resume Score
-- 🎯 ATS-style Evaluation
-- 💡 Personalized Suggestions
-- 🛠 Missing Skills Detection
-- 📈 Resume Insights Dashboard
-- ⚡ Interactive Streamlit Interface
-- 📥 Download Analysis Report *(Optional)*
+- 📊 ATS Match Score
+- 💼 Resume Skill Extraction
+- ✅ Matched Skills Detection
+- ❌ Missing Skills Identification
+- 📈 Resume Quality Analysis
+- 🎯 Role-Based Skill Matching
+- ⚡ FastAPI REST API
+- 🌐 Interactive Streamlit Interface
 
 ---
 
-## 🧠 How It Works
+# 🏗️ System Architecture
 
-1. Upload Resume
-2. Extract Resume Text
-3. Preprocess Content
-4. Analyze Skills
-5. Generate Resume Score
-6. Detect Missing Keywords
-7. Display Recommendations
+```text
+             User
+               │
+               ▼
+      Streamlit Frontend
+               │
+      HTTP API Requests
+               │
+               ▼
+      FastAPI Backend (Render)
+               │
+      Resume Processing Engine
+               │
+ ┌─────────────┼────────────────┐
+ │             │                │
+ ▼             ▼                ▼
+Resume      Skill           Resume
+Parser     Extraction       Quality
+ │
+ ▼
+Analysis Results
+ │
+ ▼
+Streamlit Dashboard
+```
 
 ---
 
-## 🛠 Tech Stack
+# 🛠 Tech Stack
 
-| Category | Technologies |
-|-----------|--------------|
+| Category | Technology |
+|-----------|------------|
 | Language | Python |
 | Frontend | Streamlit |
-| NLP | spaCy / NLTK |
-| PDF Processing | PyPDF2 / pdfplumber |
+| Backend | FastAPI |
+| AI/NLP | Semantic Analysis |
+| PDF Processing | PyMuPDF |
 | Data Processing | Pandas, NumPy |
-| Machine Learning | Scikit-learn |
-| Visualization | Plotly, Matplotlib |
+| API | REST API |
 | Deployment | Streamlit Community Cloud |
+| Backend Hosting | Render |
 
 ---
 
-## 📂 Project Structure
+# 📂 Project Structure
 
-```
+```text
 AI_Resume_Analyzer/
 
 │
 
-├── app.py
+├── app.py                     # Streamlit Frontend
 
-├── requirements.txt
+├── main.py                    # FastAPI Backend
 
 ├── resume_parser.py
 
-├── analyzer.py
+├── semantic_analyzer.py
 
-├── utils.py
+├── quality_analyzer.py
 
-├── models/
+├── skills.py
 
-├── assets/
+├── role_skills.py
 
-├── sample_resume.pdf
+├── requirements.txt
 
 └── README.md
 ```
 
 ---
 
-## ⚙️ Installation
+# ⚙️ Installation
 
-Clone the repository
+## 1. Clone Repository
 
 ```bash
 git clone https://github.com/Goutham-ps/AI_Resume_Analyzer.git
@@ -103,70 +142,102 @@ git clone https://github.com/Goutham-ps/AI_Resume_Analyzer.git
 cd AI_Resume_Analyzer
 ```
 
-Install dependencies
+---
+
+## 2. Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Run the application
+---
+
+## 3. Run FastAPI Backend
 
 ```bash
-python -m streamlit run app.py
+uvicorn main:app --reload
 ```
 
-## 📊 Analysis Includes
+Backend will start at
 
-✔ Resume Score
+```
+http://127.0.0.1:8000
+```
 
-✔ Skills Extracted
+Swagger Documentation
 
-✔ Missing Skills
-
-✔ Education Details
-
-✔ Experience Summary
-
-✔ Contact Information
-
-✔ Recommendations
-
-✔ ATS Optimization Tips
+```
+http://127.0.0.1:8000/docs
+```
 
 ---
 
-## 🎯 Use Cases
+## 4. Run Streamlit Frontend
 
-- Students
-- Freshers
-- Working Professionals
-- Recruiters
-- Career Coaches
-- HR Teams
+```bash
+streamlit run app.py
+```
 
 ---
 
-## 💡 Future Improvements
+# 📡 API Endpoints
 
-- 🔹 Gemini/OpenAI Integration
-- 🔹 Job Description Matching
-- 🔹 Resume Ranking
-- 🔹 Resume Builder
-- 🔹 Multi-language Support
-- 🔹 Interview Question Generator
-- 🔹 Cover Letter Generator
-- 🔹 PDF Report Download
-
----
-
-## 🚀 Live Demo
-
-👉 **Try the AI Resume Analyzer here:**  
-**https://resume-analyzing.streamlit.app/**
+| Method | Endpoint | Description |
+|---------|----------|-------------|
+| GET | `/` | API Status |
+| GET | `/health` | Health Check |
+| POST | `/extract-resume` | Extract Resume Text |
+| POST | `/analyze` | Job Description Analysis |
+| POST | `/analyze-role` | Role-Based Analysis |
+| GET | `/docs` | Swagger API Documentation |
 
 ---
 
-## 👨‍💻 Author
+# 📊 Analysis Includes
+
+✅ ATS Match Score
+
+✅ Matched Skills
+
+✅ Missing Skills
+
+✅ Resume Quality Analysis
+
+✅ Relevant Skills Count
+
+✅ Relevant Projects Count
+
+✅ Role-Based Skill Matching
+
+---
+
+# 💡 Use Cases
+
+- 👨‍🎓 Students
+- 💼 Freshers
+- 👨‍💻 Software Engineers
+- 📊 Data Analysts
+- ☁️ Cloud Engineers
+- 🤖 Machine Learning Engineers
+- 🧑‍💼 Recruiters
+- 🎯 Career Coaches
+
+---
+
+# 🚀 Future Improvements
+
+- 🤖 Google Gemini Integration for AI Feedback
+- 📄 Resume Ranking System
+- 💬 AI Career Suggestions
+- 📝 Cover Letter Generator
+- 🎤 Interview Question Generator
+- 🌍 Multi-language Resume Analysis
+- 📥 Downloadable PDF Report
+- 📈 Resume History Dashboard
+
+---
+
+# 👨‍💻 Author
 
 **Goutham P S**
 
@@ -175,8 +246,8 @@ https://github.com/Goutham-ps
 
 ---
 
-## ⭐ If you like this project
+# ⭐ Support
 
-Give this repository a ⭐ and support future AI projects.
+If you found this project useful, consider giving it a ⭐ on GitHub.
 
----
+It helps others discover the project and supports future development.
