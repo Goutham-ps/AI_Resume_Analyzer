@@ -115,38 +115,6 @@ Run the application
 python -m streamlit run app.py
 ```
 
----
-
-## 📸 Screenshots
-
-### 🏠 Home Page
-
-```
-assets/home.png
-```
-
-### 📄 Resume Upload
-
-```
-assets/upload.png
-```
-
-### 📊 Resume Analysis
-
-```
-assets/analysis.png
-```
-
-### 📈 Dashboard
-
-```
-assets/dashboard.png
-```
-
-*(Replace these with actual screenshots.)*
-
----
-
 ## 📊 Analysis Includes
 
 ✔ Resume Score
@@ -191,9 +159,10 @@ assets/dashboard.png
 
 ---
 
-## 🌐 Live Demo
+## 🚀 Live Demo
 
-Coming Soon
+👉 **Try the AI Resume Analyzer here:**  
+**https://resume-analyzing.streamlit.app/**
 
 ---
 
